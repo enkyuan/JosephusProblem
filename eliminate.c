@@ -48,14 +48,19 @@ void eliminate(int n, int k)
 			
 			if (count == k) 
 			{
+				// if element is eliminated
+//				// value is printed
 				arr[i] = -1;
 				printf("%d\n", i);
-
+				
+				// decrement count of remaning items
+				// and reset the counter
 				remaining--;
 				count = 0;
 			}
 		}
-
+		
+		// moves index to next available element
 		i = (i + 1) % n;
 	}
 	
@@ -63,13 +68,15 @@ void eliminate(int n, int k)
 	// print the last one
 	for (i = 0; i < n; i++) 
 	{
+		// checks if the element is eleminated or not
 		if (arr[i] != -1) 
-		{
+		{	
+			// if not, then print the only element
+			// that has not been eliminated
 			printf("%d\n", arr[i]);
 			break;
 		}
 	}	
-
 
 
 	// release the memory of the array
