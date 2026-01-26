@@ -42,35 +42,30 @@ void eliminate(int n, int k)
 	// repeat until only one element is unmarked
 	while (remaining > 1) 
 	{
-		if (arr[i] != 'X') 
+		if (arr[i] != -1) 
 		{
 			count++;
 			
 			if (count == k) 
 			{
-				arr[i] = 'X';
-				printf("Marked element at index%d\n", i);
+				arr[i] = -1;
+				printf("%d\n", i);
 
 				remaining--;
 				count = 0;
 			}
 		}
 
-		i++;
-
-		if (i == n) 
-		{
-			i = 0;	
-		}
+		i = (i + 1) % n;
 	}
 	
 
 	// print the last one
 	for (i = 0; i < n; i++) 
 	{
-		if (arr[i] != 'X') 
+		if (arr[i] != -1) 
 		{
-			printf("The last one is %d\n", arr[i]);
+			printf("%d\n", arr[i]);
 			break;
 		}
 	}	
