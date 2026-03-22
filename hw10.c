@@ -67,12 +67,37 @@ ListNode * createList(int valn)
 // print the values of the nodes to be deleted
 void eliminate(ListNode * head, int valk)
 {
-#ifdef DEBUG
-  // this #ifdef ... #endif should be inside the condition *BEFORE* a
-  // node' value is printed and it is deleted
-  ListNode * todelete = p;
-  printListNode (todelete); 
-#endif
+	// this #ifdef ... #endif should be inside the condition *BEFORE* a
+	// node' value is printed and it is deleted
+	ListNode * curr = head;
+
+	while (head != NULL && head->next != NULL)
+	{
+		for (int i = 1; i < valk; i++)
+		{
+			curr = curr->next;
+			if (curr == NULL) 
+			{
+				curr = head;
+			}
+		}
+
+    if (curr == NULL) return;
+
+    ListNode * todelete = curr;
+    ListNode * nextStart = todelete->next;
+    if (nextStart == NULL) {
+        nextStart = (head == todelete) ? head->next : head;
+    }
+
+    #ifdef DEBUG
+      printListNode(todelete); 
+    #endif
+
+    printf("%d\n", todelete->value);
+    head = deleteNode(head, todelete);
+
+    curr = nextStart;
 }
 #endif
 
