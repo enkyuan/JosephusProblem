@@ -119,36 +119,36 @@ void eliminate(ListNode * head, int valk)
 // the head). If this occurs, return the second node of the list.
 ListNode * deleteNode(ListNode * head, ListNode * todelete)
 {
-	if (head == NULL) 
-	{
-		return NULL;
-	}
+    if (head == NULL)
+    {
+        return NULL;
+    }
 
-	if (todelete == NULL) 
-	{
-		return NULL;
-	}
+    if (todelete == NULL)
+    {
+        return head;
+    }
 
-	if (head == todelete) 
-	{
-		ListNode * tmpHead = head->next;
-		free(todelete);
-		return tmpHead;	
-	}
+    if (head == todelete)
+    {
+        ListNode * tmpHead = head->next;
+        free(todelete);
+        return tmpHead;
+    }
 
-	ListNode * curr = head;
-	while (curr->next != NULL && curr->next != todelete) 
-	{
-		curr = curr->next;
-	}
+    ListNode * curr = head;
+    while (curr->next != NULL && curr->next != todelete)
+    {
+        curr = curr->next;
+    }
 
-	if (curr->next == todelete->next) 
-	{
-		curr->next = todelete->next;
-		free(todelete);
-	}
+    if (curr->next == todelete)
+    {
+        curr->next = todelete->next;
+        free(todelete);
+    }
 
-	return head;
+    return head;
 }
 #endif
 
