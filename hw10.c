@@ -82,22 +82,24 @@ void eliminate(ListNode * head, int valk)
 			}
 		}
 
-    if (curr == NULL) return;
+		if (curr == NULL) return;
 
-    ListNode * todelete = curr;
-    ListNode * nextStart = todelete->next;
-    if (nextStart == NULL) {
-        nextStart = (head == todelete) ? head->next : head;
-    }
+		ListNode * todelete = curr;
+		ListNode * nextStart = todelete->next;
+		if (nextStart == NULL) 
+		{
+			nextStart = (head == todelete) ? head->next : head;
+		}
 
-    #ifdef DEBUG
-      printListNode(todelete); 
-    #endif
+		#ifdef DEBUG
+		  printListNode(todelete); 
+		#endif
 
-    printf("%d\n", todelete->value);
-    head = deleteNode(head, todelete);
+		printf("%d\n", todelete->value);
+		head = deleteNode(head, todelete);
 
-    curr = nextStart;
+		curr = nextStart;
+	}
 }
 #endif
 
